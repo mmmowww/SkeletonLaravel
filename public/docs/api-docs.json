@@ -1,0 +1,125 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API документация",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/code-jwt": {
+            "post": {
+                "tags": [
+                    "Токен"
+                ],
+                "summary": "Токен",
+                "description": "Получить токен",
+                "operationId": "d77a28213fd7bcd7931ef568da08609a",
+                "parameters": [
+                    {
+                        "name": "[user]first_name",
+                        "in": "query",
+                        "description": "Имя",
+                        "schema": {
+                            "type": "string",
+                            "default": "test"
+                        }
+                    },
+                    {
+                        "name": "[user]last_name",
+                        "in": "query",
+                        "description": "Фамилия",
+                        "schema": {
+                            "type": "string",
+                            "default": "test"
+                        }
+                    },
+                    {
+                        "name": "[user]email",
+                        "in": "query",
+                        "description": "Почта",
+                        "schema": {
+                            "type": "string",
+                            "default": "test@test.com"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешно"
+                    },
+                    "401": {
+                        "description": "Пользователь не авторизован"
+                    }
+                }
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Токен"
+                ],
+                "summary": "Токен",
+                "description": "Логин по токену",
+                "operationId": "ebb97cf0b7d87cc5a8eaf063abd4c9f4",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешно"
+                    },
+                    "401": {
+                        "description": "Пользователь не авторизован"
+                    }
+                }
+            }
+        },
+        "/api/profile": {
+            "get": {
+                "tags": [
+                    "Токен"
+                ],
+                "summary": "Токен",
+                "description": "Логин по токену",
+                "operationId": "f50afad9431ad9c5b7ef22972eb35597",
+                "responses": {
+                    "200": {
+                        "description": "Успешно"
+                    },
+                    "401": {
+                        "description": "Пользователь не авторизован"
+                    }
+                }
+            }
+        },
+        "/api/logout": {
+            "get": {
+                "tags": [
+                    "Токен"
+                ],
+                "summary": "Токен",
+                "description": "Логин по токену",
+                "operationId": "5f172655d648057b361bd1580399332a",
+                "responses": {
+                    "200": {
+                        "description": "Успешно"
+                    },
+                    "401": {
+                        "description": "Пользователь не авторизован"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Токен",
+            "description": "Токен"
+        }
+    ]
+}
