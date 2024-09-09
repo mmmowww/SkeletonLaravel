@@ -2,6 +2,7 @@
 
 namespace App\Domain\Users\Tools;
 
+use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 use stdClass;
 
@@ -16,16 +17,16 @@ class JwtService
      */
     public static function create(array $user): string
     {
-        return \Firebase\JWT\JWT::encode($user, self::JWT_KEY, self::JWT_ALGORITHM);
+        return JWT::encode($user, self::JWT_KEY, self::JWT_ALGORITHM);
     }
 
     /**
      * @param string $jwt
-     * @return \stdClass
+     * @return stdClass
      */
     public static function decode(string $jwt): stdClass
     {
-        return \Firebase\JWT\JWT::decode($jwt, new Key(self::JWT_KEY, self::JWT_ALGORITHM));
+        return JWT::decode($jwt, new Key(self::JWT_KEY, self::JWT_ALGORITHM));
     }
 
 

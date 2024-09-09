@@ -2,8 +2,11 @@
 
 namespace App\Domain\Users\Tools;
 
+use App\Domain\Users\DTO\UserDTO;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use stdClass;
 
 class UsersService
@@ -29,5 +32,17 @@ class UsersService
     public function profile(): User
     {
         return Auth::user();
+    }
+
+    public function create(UserDTO $user): User
+    {
+        $userCreate = new User();
+        $userCreate->email = $user->email;
+        $userCreate->name = $user->firstName;
+        $userCreate->last_name = $user->lastName;
+        $password = $password ?? Str::random(40);
+        $userCreate->password = Hash::make($password);
+        $userCreate->save();
+        return $userCreate;
     }
 }

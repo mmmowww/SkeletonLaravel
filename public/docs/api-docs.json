@@ -114,6 +114,47 @@
                     }
                 }
             }
+        },
+        "/api/create": {
+            "post": {
+                "tags": [
+                    "Токен"
+                ],
+                "summary": "Токен",
+                "description": "Логин по токену",
+                "operationId": "6352b432747ece99fde60281bc82cbc6",
+                "parameters": [
+                    {
+                        "name": "firstName",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "firstName",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "firstName",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешно"
+                    },
+                    "401": {
+                        "description": "Пользователь не авторизован"
+                    }
+                }
+            }
         }
     },
     "tags": [

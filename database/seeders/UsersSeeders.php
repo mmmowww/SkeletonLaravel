@@ -21,7 +21,7 @@ class UsersSeeders extends Seeder
     {
         DB::table(\App\Models\User::TABLE)->truncate();
         Model::factory()->create([
-            Model::ID => 1,
+            Model::ID => 2,
             Model::LOGIN => 'test',
             Model::EMAIL => 'test@test.com',
             Model::FIRST_NAME => 'test',

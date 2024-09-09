@@ -8,16 +8,18 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    const string TABLE = 'users';
+    public const string TABLE = 'users';
 
-    const string ID = 'id';
-    const string LOGIN = 'login';
-    const string EMAIL = 'email';
-    const string FIRST_NAME = 'first_name';
-    const string LAST_NAME = 'last_name';
-    const string MIDDLE_NAME = 'middle_name';
+    public const string ID = 'id';
+    public const string LOGIN = 'login';
+    public const string EMAIL = 'email';
+    public const string FIRST_NAME = 'first_name';
+    public const string NAME = 'name';
+    public const string LAST_NAME = 'last_name';
+    public const string MIDDLE_NAME = 'middle_name';
 
-    use HasFactory, Notifiable;
+    use HasFactory;
+    use Notifiable;
 
 
     /**

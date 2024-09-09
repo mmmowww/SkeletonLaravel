@@ -11,6 +11,7 @@ Route::get('/user', function (Request $request) {
 Route::post('/code-jwt', [UsersController::class, 'codeJWT']);
 Route::post('/decode-jwt', [UsersController::class, 'decodeJWT']);
 Route::post('/login', [UsersController::class, 'logIn']);
-Route::get('/profile', [UsersController::class, 'profile']);
-Route::get('/logout', [UsersController::class, 'logout']);
+Route::get('/profile', [UsersController::class, 'profile'])->middleware('auth');
+Route::get('/logout', [UsersController::class, 'logout'])->middleware('auth');
+Route::post('/create', [UsersController::class, 'createUser']);
 

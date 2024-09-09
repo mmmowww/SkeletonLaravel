@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Tests\Support;
 
+use Codeception\Actor;
+
 /**
  * Inherited Methods
  * @method void wantTo($text)
@@ -18,8 +20,8 @@ namespace Tests\Support;
  * @method void pause($vars = [])
  *
  * @SuppressWarnings(PHPMD)
-*/
-class UnitTester extends \Codeception\Actor
+ */
+class UnitTester extends Actor
 {
     use _generated\UnitTesterActions;
 

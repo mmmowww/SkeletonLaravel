@@ -24,6 +24,22 @@ class AuthTest extends TestCase
         ];
     }
 
+    public function CreateDataProvider()
+    {
+        return [
+            'success' => [
+                'expect' => [
+                    'user' =>
+                        [
+                            'firstName' => 'TEST_CREATE',
+                            'lastName' => 'TEST_CREATE',
+                            'email' => 'test_create@test.com'
+                        ]
+                ]
+            ]
+        ];
+    }
+
     /**
      * @param array $expect
      * @return void
@@ -100,5 +116,21 @@ class AuthTest extends TestCase
         $response = $this->get('/api/logout');
         $response->assertStatus(200);
         $this->assertGuest();
+    }
+
+    /**
+     * @param array $expect
+     * @return void
+     * @dataProvider CreateDataProvider
+     */
+    public function testCreate(array $expect)
+    {
+        $this->assertGuest();
+        $this->post('/api/create', $expect['user']);
+        $this->assertDatabaseHas(User::TABLE, [
+            User::EMAIL => $expect['user']['email'],
+            User::NAME => $expect['user']['firstName'],
+            User::LAST_NAME => $expect['user']['lastName'],
+        ]);
     }
 }
