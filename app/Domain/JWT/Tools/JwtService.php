@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Users\Tools;
+namespace App\Domain\JWT\Tools;
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;

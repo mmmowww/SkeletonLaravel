@@ -12,7 +12,7 @@
                 ],
                 "summary": "Токен",
                 "description": "Получить токен",
-                "operationId": "d77a28213fd7bcd7931ef568da08609a",
+                "operationId": "f66b2ffb756a2cdcf38d6e27c5ffd948",
                 "parameters": [
                     {
                         "name": "[user]first_name",
@@ -39,6 +39,35 @@
                         "schema": {
                             "type": "string",
                             "default": "test@test.com"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешно"
+                    },
+                    "401": {
+                        "description": "Пользователь не авторизован"
+                    }
+                }
+            }
+        },
+        "/api/decode-jwt": {
+            "post": {
+                "tags": [
+                    "Токен"
+                ],
+                "summary": "Токен",
+                "description": "Декодировать токен",
+                "operationId": "57d7e290988f9155b51904b5455e8c3a",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "description": "токен",
+                        "schema": {
+                            "type": "string",
+                            "default": "test"
                         }
                     }
                 ],

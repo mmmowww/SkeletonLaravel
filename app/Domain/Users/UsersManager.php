@@ -2,11 +2,10 @@
 
 namespace App\Domain\Users;
 
+use App\Domain\JWT\Tools\JwtService;
 use App\Domain\Users\DTO\UserDTO;
-use App\Models\User;
-use App\Domain\Users\Tools\JwtService;
 use App\Domain\Users\Tools\UsersService;
-use stdClass;
+use App\Models\User;
 
 class UsersManager
 {
@@ -18,30 +17,12 @@ class UsersManager
     }
 
     /**
-     * @param array $user
-     * @return string
-     */
-    public function codeJWT($user): string
-    {
-        return $this->jwtService->create($user);
-    }
-
-    /**
-     * @param string $token
-     * @return stdClass
-     */
-    public function decodeJWT(string $token): stdClass
-    {
-        return $this->jwtService->decode($token);
-    }
-
-    /**
      * @param string $token
      * @return User
      */
     public function logIn(string $token): User
     {
-        $decode = $this->decodeJWT($token);
+        $decode = $this->jwtService->decode($token);
         return $this->usersService->login($decode);
     }
 

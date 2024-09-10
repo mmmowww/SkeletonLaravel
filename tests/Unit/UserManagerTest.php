@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use App\Domain\Users\Tools\JwtService;
+use App\Domain\JWT\Tools\JwtService;
 use App\Domain\Users\Tools\UsersService;
 use App\Domain\Users\UsersManager;
 use PHPUnit\Framework\TestCase;
